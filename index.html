@@ -15,6 +15,8 @@
     <script src="libs/freezeframe-5.0.2/freezeframe.min.js"></script>
     <script src="libs/xaringanExtra-freezeframe-0.0.1/freezeframe-init.js"></script>
     <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":true,"warnings":true}</script>
+    <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset-0.2.6/panelset.js"></script>
     <link rel="stylesheet" href="slides_lb.css" type="text/css" />
   </head>
   <body>
@@ -45,7 +47,7 @@ This talk is a sample teaching presentation.
 The task: *A short teaching presentation (5-10 mins) explaining some topic of my choice suitable for a second or third year undergraduate Data Science course.*
 
 I have geared this talk to a third year class with the following assumptions:
-- students have had exposure to programming in R &amp; RStudio,
+- students have had exposure to programming in R &amp; RStudio and using the `tidyverse`,
 - this topic would be fairly early in the course (Week 1 or 2), and
 - in class we have already discussed some ideas around professional practice, communication and collaboration.
 
@@ -59,18 +61,18 @@ class: center, middle
 
 # Let's begin!
 
-# link.lizabolton.com/reprex
+# 🔗 [link.lizabolton.com/reprex](link.lizabolton.com/reprex.html)
 
 ---
 background-image: url(https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/e4a11b1f-f235-461f-ab73-ce6128c59e49_rw_1920.png?h=a34a4173c717bfbc600a8682d419288e)
 background-size: contain
 
-## No data 
-## scientist is 
-## an island
+# No data scientist
+# is an island
 
-.verytiny[.right-column[Image description: A person in a cape that reads “code hero” who looks like they are flying through the air while typing on a computer while saying “I’m doing a think all on my own!” The coder’s arms and legs have ropes attached to two hot air balloons lifting them up, with labels on the balloons including “teachers”, “bloggers”, “friends”, “developers”. Below the code hero, several people carry a trampoline with labels “support” and “community” that will catch them if they fall. Artist: &lt;a href=https://allisonhorst.com/everything-else&gt;Allison Horst&lt;/a&gt;]]
+.tiny[.right-column[Image description: A person in a cape that reads “code hero” who looks like they are flying through the air while typing on a computer while saying “I’m doing a think all on my own!” The coder’s arms and legs have ropes attached to two hot air balloons lifting them up, with labels on the balloons including “teachers”, “bloggers”, “friends”, “developers”. Below the code hero, several people carry a trampoline with labels “support” and “community” that will catch them if they fall. Artist: &lt;a href=https://allisonhorst.com/everything-else&gt;Allison Horst&lt;/a&gt;]]
 
+&lt;!---We've talked about the importance of communication as statisticians and data scientists, and we've also looked at a popular collaboration tools through Git &amp; GitHub. In the---&gt;
 
 ---
 background-image: url("https://media.tenor.com/WTbXryP5r98AAAAC/thor-loki.gif")
@@ -78,7 +80,7 @@ background-position: center
 background-size: contain
 background-color: black
 
-.small[.white[.footnote[Image description: GIF from Thor Ragnarok of Thor yelling "Help Him" at some guards while supporting Loki and then flinging Loki at the guards.]]]
+.small[.white[.footnote[Image description: GIF from the movie Thor: Ragnarok. Thor is yelling "Get help" at guards while supporting Loki and then flings Loki at the guards yelling "Help him".]]]
 
 ---
 ## What is a reproducible example?
@@ -93,57 +95,87 @@ Specifically, it is a **minimal example** needed for someone helping you to repr
 
 .footnote[*This is especially helpful with the rise of online and hybrid work!] 
 
-&lt;!---We've talked about the importance of communication as statisticians and data scientists, and we've also looked at a popular collaboration tools through Git &amp; GitHub. In the---&gt;
+
 
 ---
 ## Why should you care about creating reproducible examples?
 
-* Useful **professional skill** for those working with R and other programming languages in further study and future employment (concepts transferable to programming in any language).
+* Useful **professional skill** for those working with R and other programming languages in further study and future employment 
+  - These concepts transferable to programming in any language.
+  - You will continue to learn updated/new functions, if not whole new languages in your career. Learning how to ask for help is an evergreen skill.
 
-* Great principles to help us help YOU on Ed Discussion.
+* Useful NOW to help us help YOU on Ed Discussion.
 
-* The process of preparing a reprex forces you to think about your code in a specific way that can help you spot the problem without actually having to ask anyone else*
+* The process of preparing a reprex forces you to think about your code in a specific way that can help you spot the problem without actually having to ask anyone else.*
 
 
-.footnote[*This literally happened to me about 2 hours before writing this slide!]
+.footnote[*This literally happened to me about 2 hours before preparing this slide for the first time!]
 
 ---
 ## Other things to know
-Please try to use use reprexes when asking for help on Piazza!
-The outputs from the reprex package work beautifully on Piazza, too.
-No more upside down photos of computer screens taken from phones, please!
-reprex is installed in the JupyterHub and will be loaded whenever we run library(tidyverse)
-You won’t have to worry about the data side of reprexes as much for this course, as in almost all cases we will all be working with the same data. But! It is a key skill if you will be working with data and programming languages in the future.
+
+* Please try to use use reprexes when asking for help on Ed Discussion!
+  * ❌ Screenshots
+  * ❌ Upside down photos of computer screens taken from phones 😭
+  * ✅ Code I could copy and run myself  + what your output looks like 
+
+* If you've already installed the `tidyverse` package, `reprex` is installed will be loaded whenever we run `library(tidyverse)`.
+
+* You won’t have to worry about the data side of reprexes as much for this course, as in almost all cases we will all be working with the same data. But! It is a key skill if you will be working with data and programming languages in the future.
 
 
 ---
-## Considerations
+## Future data considerations
 
 - Can your *data* be shared? 
-  - This may have privacy/commercial sensitivity implications, or
-  - It may just be inconvenient for the person/people helping you to have a large dataset
-- Have you loaded the correct libraries
-
+  - This may have **privacy/commercial sensitivity** implications
+  - It may just be *inconvenient* for the person/people helping you to have a large dataset
+  
+- Can you replicate your problem with an inbuilt dataset? E.g., `starwars` in the `tidyverse`, `iris` or `mtcars` in base R
 
 ---
-# Watch the creator of the reprex package explain it
+class: middle, center
 
-Jenny Bryan is a bit of a hero of mine, and this was even BEFORE I knew she was the creator of the reprex package.
+# Demo: To R Studio!
 
-I think the whole video is excellent, and you’re very welcome to watch all of it, but at minimum, please watch the following time intervals:
+---
 
-0:00 - 7:20 (background and initial demo)
-14:08 - 29:48 (philosophy and examples)
-
-The video and slides are on this page: https://reprex.tidyverse.org/articles/articles/learn-reprex.html
+## Homework tasks
 
 
+.panelset[
+.panel[.panel-name[1 Watch Jenny Bryan's video]
+
+[Jenny Bryan](https://jennybryan.org/about/) is a bit of a hero of mine, and this was even BEFORE I knew she was one of the developers of the `reprex` package.
+
+I think the whole video is excellent, but at minimum, please watch the following time intervals:
+
+1. 0:00 - 7:20 (background and initial demo) &lt;br&gt;
+2. 14:08 - 29:48 (philosophy and examples)
+
+.highlight[The video and slides are on this page: https://reprex.tidyverse.org/articles/articles/learn-reprex.html]
+
+]
+.panel[.panel-name[2 Post on Ed Discussion]
+
+There is a Thread on Ed Discussion called **reprex practice**. Go through the steps I demonstrated today on your own and post the result as a comment.
+
+.highlight[Deadline: Complete this by 5 PM Friday to earn the point top-up for this week's tasks.]
+]
+]
+
+---
+class: inverse, middle, center
+
+# Thank you!
+
+# &lt;a href = "https://www.linkedin.com/in/lizabolton/"&gt;&lt;i class="fa-brands fa-linkedin"&gt;&lt;/i&gt;&lt;/a&gt;  &amp;nbsp;  &amp;nbsp; &lt;a href="https://github.com/elb0/"&gt;&lt;i class="fa-brands fa-square-github"&gt;&lt;/i&gt;&lt;/a&gt;
+
+# These slides: [link.lizabolton.com/reprex](http://link.lizabolton.com/reprex)
 
 
-Wider version: https://media.tenor.com/WTbXryP5r98AAAAC/thor-loki.gif
 
 
-https://64.media.tumblr.com/5b83f128b68df6f6710573f8fa96a80b/tumblr_oytbkaoqIL1wscuaeo1_500.gif
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

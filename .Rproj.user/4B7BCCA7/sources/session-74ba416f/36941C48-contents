@@ -43,6 +43,7 @@ htmltools::tagList(
 
 
 xaringanExtra::use_freezeframe()
+xaringanExtra::use_panelset()
 
 ```
 
@@ -115,31 +116,54 @@ Specifically, it is a **minimal example** needed for someone helping you to repr
 
 
 ---
-## Considerations
+## Future data considerations
 
 - Can your *data* be shared? 
-  - This may have privacy/commercial sensitivity implications, or
-  - It may just be inconvenient for the person/people helping you to have a large dataset
-- Have you included the correct libraries?
-
+  - This may have **privacy/commercial sensitivity** implications
+  - It may just be *inconvenient* for the person/people helping you to have a large dataset
+  
+- Can you replicate your problem with an inbuilt dataset? E.g., `starwars` in the `tidyverse`, `iris` or `mtcars` in base R
 
 ---
-# Watch the creator of the reprex package explain it
+class: middle, center
 
-Jenny Bryan is a bit of a hero of mine, and this was even BEFORE I knew she was the creator of the reprex package.
+# Demo: To R Studio!
 
-I think the whole video is excellent, and you’re very welcome to watch all of it, but at minimum, please watch the following time intervals:
+---
 
-0:00 - 7:20 (background and initial demo) <br>
-14:08 - 29:48 (philosophy and examples)
-
-The video and slides are on this page: https://reprex.tidyverse.org/articles/articles/learn-reprex.html
+## Homework tasks
 
 
+.panelset[
+.panel[.panel-name[1 Watch Jenny Bryan's video]
+
+[Jenny Bryan](https://jennybryan.org/about/) is a bit of a hero of mine, and this was even BEFORE I knew she was one of the developers of the `reprex` package.
+
+I think the whole video is excellent, but at minimum, please watch the following time intervals:
+
+1. 0:00 - 7:20 (background and initial demo) <br>
+2. 14:08 - 29:48 (philosophy and examples)
+
+.highlight[The video and slides are on this page: https://reprex.tidyverse.org/articles/articles/learn-reprex.html]
+
+]
+.panel[.panel-name[2 Post on Ed Discussion]
+
+There is a Thread on Ed Discussion called **reprex practice**. Go through the steps I demonstrated today on your own and post the result as a comment.
+
+.highlight[Deadline: Complete this by 5 PM Friday to earn the point top-up for this week's tasks.]
+]
+]
+
+---
+class: inverse, middle, center
+
+# Thank you!
+
+# <a href = "https://www.linkedin.com/in/lizabolton/"><i class="fa-brands fa-linkedin"></i></a>  &nbsp;  &nbsp; <a href="https://github.com/elb0/"><i class="fa-brands fa-square-github"></i></a>
+
+# These slides: [link.lizabolton.com/reprex](http://link.lizabolton.com/reprex)
 
 
 
-Wider version: https://media.tenor.com/WTbXryP5r98AAAAC/thor-loki.gif
 
-
-https://64.media.tumblr.com/5b83f128b68df6f6710573f8fa96a80b/tumblr_oytbkaoqIL1wscuaeo1_500.gif
