@@ -17,6 +17,8 @@
     <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":true,"warnings":true}</script>
     <link href="libs/panelset-0.2.6/panelset.css" rel="stylesheet" />
     <script src="libs/panelset-0.2.6/panelset.js"></script>
+    <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view-0.2.6/tile-view.js"></script>
     <link rel="stylesheet" href="slides_lb.css" type="text/css" />
   </head>
   <body>
@@ -59,7 +61,9 @@ I have geared this talk to a third year class with the following assumptions:
 ---
 class: center, middle
 
-# Let's begin!
+# 🧢 Please put your student hats  on now, I am going to ask you to interact with me as if you are students in a Zoom class.
+
+# *Let's begin!*
 
 # 🔗 [link.lizabolton.com/reprex](link.lizabolton.com/reprex.html)
 
@@ -83,33 +87,131 @@ background-color: black
 .small[.white[.footnote[Image description: GIF from the movie Thor: Ragnarok. Thor is yelling "Get help" at guards while supporting Loki and then flings Loki at the guards yelling "Help him".]]]
 
 ---
-## What is a reproducible example?
+## What is a {repr}oducible {ex}ample?
 
 --
-Well, it is an example that someone else can reproduce.
+**reprex** (noun) An example that someone else can reproduce.
 &lt;br&gt;
 
 --
 &lt;br&gt;
-Specifically, it is a **minimal example** needed for someone helping you to reproduce an error or other behaviour you would like them to recreate on their own machine*.
+Specifically, it is a **minimal example** needed for someone helping you to reproduce an error or other behaviour you would like them to recreate on their own machine.*
 
 .footnote[*This is especially helpful with the rise of online and hybrid work!] 
 
+--
+
+&lt;br&gt;
+&lt;br&gt;
+Additionally, sometimes when we say "reprex" we mean `reprex` (the package) or `reprex::reprex()` (a function within the package)
+
+[reprex.tidyverse.org](https://reprex.tidyverse.org/)
 
 
 ---
 ## Why should you care about creating reproducible examples?
 
-* Useful **professional skill** for those working with R and other programming languages in further study and future employment 
+* Useful **professional skill** for those working with R and other programming languages in further study and future employment. 
   - These concepts transferable to programming in any language.
   - You will continue to learn updated/new functions, if not whole new languages in your career. Learning how to ask for help is an evergreen skill.
 
-* Useful NOW to help us help YOU on Ed Discussion.
+* Useful NOW to help *us* help **YOU** on Ed Discussion.
 
 * The process of preparing a reprex forces you to think about your code in a specific way that can help you spot the problem without actually having to ask anyone else.*
 
 
 .footnote[*This literally happened to me about 2 hours before preparing this slide for the first time!]
+
+
+---
+class: middle, center
+
+# Demo: To RStudio!
+
+---
+## Demo code
+
+.panelset[
+.panel[.panel-name[Code]
+
+
+```r
+# Make sure tidyverse is installed on your computer
+library(tidyverse)
+
+starwars |&gt; 
+  select(where(is.numeric)) |&gt; 
+  mutate(is_human = species == "human")
+```
+
+]
+
+.panel[.panel-name[Download Rmd]
+
+You can run this code to download the code to your current working directory. Make sure you have the right .Rproj open.
+
+
+```r
+download.file(
+  "https://raw.githubusercontent.com/lizabolton/2023-uoa-job-talk/main/reprex_task.Rmd", 
+              destfile = "reprex_task.Rmd")
+```
+]
+
+.panel[.panel-name[reprex]
+
+.small[
+``` r
+library(tidyverse)
+
+starwars |&gt; 
+  select(where(is.numeric)) |&gt; 
+  mutate(is_human = species == "human")
+#&gt; Error in `mutate()`:
+#&gt; ℹ In argument: `is_human = species == "human"`.
+#&gt; Caused by error:
+#&gt; ! object 'species' not found
+#&gt; Backtrace:
+#&gt;      ▆
+#&gt;   1. ├─dplyr::mutate(...)
+#&gt;   2. ├─dplyr:::mutate.data.frame(...)
+#&gt;   3. │ └─dplyr:::mutate_cols(.data, dplyr_quosures(...), by)
+#&gt;   4. │   ├─base::withCallingHandlers(...)
+#&gt;   5. │   └─dplyr:::mutate_col(dots[[i]], data, mask, new_columns)
+#&gt;   6. │     └─mask$eval_all_mutate(quo)
+#&gt;   7. │       └─dplyr (local) eval()
+#&gt;   8. └─base::.handleSimpleError(...)
+#&gt;   9.   └─dplyr (local) h(simpleError(msg, call))
+#&gt;  10.     └─rlang::abort(message, class = error_class, parent = parent, call = error_call)
+```
+
+&lt;sup&gt;Created on 2023-07-17 with [reprex v2.0.2](https://reprex.tidyverse.org)&lt;/sup&gt;
+]
+]
+
+]
+
+---
+## Some use cases
+
+* Asking a question on [community.rstudio.com](https://community.rstudio.com/) or [stackoverflow.com](https://stackoverflow.com/)
+* Report a bug on [github.com](https://github.com/)
+* Collaborate on Slack, Discord or in email
+
+&lt;!---Ask to use chat to indicate if come across these ---&gt;
+
+---
+## Dos and don'ts
+
+* **Use the simplest dataset possible**, almost NEVER your actual data. `iris` and `mtcars` are classics.
+  - This is a great challenge to help you check if the issue is with your code or your data setup
+  - Furthermore, can your *data* even be shared? 
+      * This may have **privacy/commercial sensitivity** implications
+      * It may just be *inconvenient* for the person/people helping you to have a large dataset
+      
+      
+
+.footnote[RStudio article:  https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html]  
 
 ---
 ## Other things to know
@@ -121,22 +223,7 @@ Specifically, it is a **minimal example** needed for someone helping you to repr
 
 * If you've already installed the `tidyverse` package, `reprex` is installed will be loaded whenever we run `library(tidyverse)`.
 
-* You won’t have to worry about the data side of reprexes as much for this course, as in almost all cases we will all be working with the same data. But! It is a key skill if you will be working with data and programming languages in the future.
-
-
----
-## Future data considerations
-
-- Can your *data* be shared? 
-  - This may have **privacy/commercial sensitivity** implications
-  - It may just be *inconvenient* for the person/people helping you to have a large dataset
-  
-- Can you replicate your problem with an inbuilt dataset? E.g., `starwars` in the `tidyverse`, `iris` or `mtcars` in base R
-
----
-class: middle, center
-
-# Demo: To R Studio!
+* You usually won’t have to worry about the data side of reprexes for this course, as in almost all cases we will all be working with the same data. But! It is a key skill if you will be working with data and programming languages in the future.
 
 ---
 
@@ -160,7 +247,9 @@ I think the whole video is excellent, but at minimum, please watch the following
 
 There is a Thread on Ed Discussion called **reprex practice**. Go through the steps I demonstrated today on your own and post the result as a comment.
 
-.highlight[Deadline: Complete this by 5 PM Friday to earn the point top-up for this week's tasks.]
+.question[Can you also identify and explain what is causing the error?]
+
+📅 .highlight[Complete this by 5 PM Friday to earn the point top-up for this week's tasks.]
 ]
 ]
 
