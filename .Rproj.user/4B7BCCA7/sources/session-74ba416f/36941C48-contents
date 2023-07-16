@@ -1,0 +1,135 @@
+---
+title: "`reprex`"
+subtitle: "Get help! Writing *reproducible examples*  for code questions"
+author: "Liza Bolton<br>University of Auckland, Statistics Department<br>*Job Talk*"
+date: "2023-07-18"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    css: slides_lb.css
+    nature:
+      highlightStyle: github
+      countIncrementalSlides: false
+---
+class: inverse
+
+
+## A quick preface 📝
+This talk is a sample teaching presentation.
+
+The task: *A short teaching presentation (5-10 mins) explaining some topic of my choice suitable for a second or third year undergraduate Data Science course.*
+
+I have geared this talk to a third year class with the following assumptions:
+- students have had exposure to programming in R & RStudio,
+- this topic would be fairly early in the course (Week 1 or 2), and
+- in class we have already discussed some ideas around professional practice, communication and collaboration.
+
+.small[This presentation is based on content I developed and taught in STA303: Methods of Data Analysis II at the University of Toronto.]
+
+
+```{r setup, echo=FALSE, message=F}
+library(xaringanExtra)
+
+
+# Set up easy-copy code w.Xaringan extra
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clipboard\"></i>",
+    success_text = "<i class=\"fa fa-check\" style=\"color: #90BE6D\"></i>",
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+
+
+xaringanExtra::use_freezeframe()
+
+```
+
+---
+class: center, middle
+
+# Let's begin!
+
+---
+background-image: url(https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/e4a11b1f-f235-461f-ab73-ce6128c59e49_rw_1920.png?h=a34a4173c717bfbc600a8682d419288e)
+background-size: contain
+
+## No data 
+## scientist is 
+## an island
+
+.verytiny[.right-column[Image description: A person in a cape that reads “code hero” who looks like they are flying through the air while typing on a computer while saying “I’m doing a think all on my own!” The coder’s arms and legs have ropes attached to two hot air balloons lifting them up, with labels on the balloons including “teachers”, “bloggers”, “friends”, “developers”. Below the code hero, several people carry a trampoline with labels “support” and “community” that will catch them if they fall. Artist: <a href=https://allisonhorst.com/everything-else>Allison Horst</a>]]
+
+
+---
+background-image: url("https://media.tenor.com/WTbXryP5r98AAAAC/thor-loki.gif")
+background-position: center
+background-size: contain
+background-color: black
+
+.small[.white[.footnote[Image description: GIF from Thor Ragnarok of Thor yelling "Help Him" at some guards while supporting Loki and then flinging Loki at the guards.]]]
+
+---
+## What is a reproducible example?
+
+--
+Well, it is an example that someone else can reproduce.
+<br>
+
+--
+<br>
+Specifically, it is a **minimal example** needed for someone helping you to reproduce an error or other behaviour you would like them to recreate on their own machine*.
+
+.footnote[*This is especially helpful with the rise of online and hybrid work!] 
+
+<!---We've talked about the importance of communication as statisticians and data scientists, and we've also looked at a popular collaboration tools through Git & GitHub. In the--->
+
+---
+## Why should you care about creating reproducible examples?
+
+* Useful **professional skill** for those working with R and other programming languages in further study and future employment (concepts transferable to programming in any language).
+
+* Great principles to help us help YOU on Ed Discussion.
+
+* The process of preparing a reprex forces you to think about your code in a specific way that can help you spot the problem without actually having to ask anyone else*
+
+
+.footnote[*This literally happened to me about 2 hours before writing this slide!]
+
+---
+## Other things to know
+Please try to use use reprexes when asking for help on Piazza!
+The outputs from the reprex package work beautifully on Piazza, too.
+No more upside down photos of computer screens taken from phones, please!
+reprex is installed in the JupyterHub and will be loaded whenever we run library(tidyverse)
+You won’t have to worry about the data side of reprexes as much for this course, as in almost all cases we will all be working with the same data. But! It is a key skill if you will be working with data and programming languages in the future.
+
+
+---
+## Considerations
+
+- Can your *data* be shared? 
+  - This may have privacy/commercial sensitivity implications, or
+  - It may just be inconvenient for the person/people helping you to have a large dataset
+- Have you loaded the correct libraries
+
+
+---
+# Watch the creator of the reprex package explain it
+
+Jenny Bryan is a bit of a hero of mine, and this was even BEFORE I knew she was the creator of the reprex package.
+
+I think the whole video is excellent, and you’re very welcome to watch all of it, but at minimum, please watch the following time intervals:
+
+0:00 - 7:20 (background and initial demo)
+14:08 - 29:48 (philosophy and examples)
+
+The video and slides are on this page: https://reprex.tidyverse.org/articles/articles/learn-reprex.html
+
+
+
+
+Wider version: https://media.tenor.com/WTbXryP5r98AAAAC/thor-loki.gif
+
+
+https://64.media.tumblr.com/5b83f128b68df6f6710573f8fa96a80b/tumblr_oytbkaoqIL1wscuaeo1_500.gif

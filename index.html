@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>reprex</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Liza Bolton University of Auckland, Statistics Department Job Talk" />
+    <meta name="date" content="2023-07-18" />
+    <script src="libs/header-attrs-2.21/header-attrs.js"></script>
+    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard-0.2.6/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"<i class=\"fa fa-clipboard\"><\/i>","success":"<i class=\"fa fa-check\" style=\"color: #90BE6D\"><\/i>","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/font-awesome-6.4.0/css/all.min.css" rel="stylesheet" />
+    <link href="libs/font-awesome-6.4.0/css/v4-shims.min.css" rel="stylesheet" />
+    <script src="libs/freezeframe-5.0.2/freezeframe.min.js"></script>
+    <script src="libs/xaringanExtra-freezeframe-0.0.1/freezeframe-init.js"></script>
+    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":true,"warnings":true}</script>
+    <link rel="stylesheet" href="slides_lb.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# <code>reprex</code>
+]
+.subtitle[
+## Get help! Writing <em>reproducible examples</em> for code questions
+]
+.author[
+### Liza Bolton<br>University of Auckland, Statistics Department<br><em>Job Talk</em>
+]
+.date[
+### 2023-07-18
+]
+
+---
+
+class: inverse
+
+
+## A quick preface 📝
+This talk is a sample teaching presentation.
+
+The task: *A short teaching presentation (5-10 mins) explaining some topic of my choice suitable for a second or third year undergraduate Data Science course.*
+
+I have geared this talk to a third year class with the following assumptions:
+- students have had exposure to programming in R &amp; RStudio,
+- this topic would be fairly early in the course (Week 1 or 2), and
+- in class we have already discussed some ideas around professional practice, communication and collaboration.
+
+.small[This presentation is based on content I developed and taught in STA303: Methods of Data Analysis II at the University of Toronto.]
+
+
+
+
+---
+class: center, middle
+
+# Let's begin!
+
+---
+background-image: url(https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/e4a11b1f-f235-461f-ab73-ce6128c59e49_rw_1920.png?h=a34a4173c717bfbc600a8682d419288e)
+background-size: contain
+
+## No data 
+## scientist is 
+## an island
+
+.verytiny[.right-column[Image description: A person in a cape that reads “code hero” who looks like they are flying through the air while typing on a computer while saying “I’m doing a think all on my own!” The coder’s arms and legs have ropes attached to two hot air balloons lifting them up, with labels on the balloons including “teachers”, “bloggers”, “friends”, “developers”. Below the code hero, several people carry a trampoline with labels “support” and “community” that will catch them if they fall. Artist: &lt;a href=https://allisonhorst.com/everything-else&gt;Allison Horst&lt;/a&gt;]]
+
+
+---
+background-image: url("https://media.tenor.com/WTbXryP5r98AAAAC/thor-loki.gif")
+background-position: center
+background-size: contain
+background-color: black
+
+.small[.white[.footnote[Image description: GIF from Thor Ragnarok of Thor yelling "Help Him" at some guards while supporting Loki and then flinging Loki at the guards.]]]
+
+---
+## What is a reproducible example?
+
+--
+Well, it is an example that someone else can reproduce.
+&lt;br&gt;
+
+--
+&lt;br&gt;
+Specifically, it is a **minimal example** needed for someone helping you to reproduce an error or other behaviour you would like them to recreate on their own machine*.
+
+.footnote[*This is especially helpful with the rise of online and hybrid work!] 
+
+&lt;!---We've talked about the importance of communication as statisticians and data scientists, and we've also looked at a popular collaboration tools through Git &amp; GitHub. In the---&gt;
+
+---
+## Why should you care about creating reproducible examples?
+
+* Useful **professional skill** for those working with R and other programming languages in further study and future employment (concepts transferable to programming in any language).
+
+* Great principles to help us help YOU on Ed Discussion.
+
+* The process of preparing a reprex forces you to think about your code in a specific way that can help you spot the problem without actually having to ask anyone else*
+
+
+.footnote[*This literally happened to me about 2 hours before writing this slide!]
+
+---
+## Other things to know
+Please try to use use reprexes when asking for help on Piazza!
+The outputs from the reprex package work beautifully on Piazza, too.
+No more upside down photos of computer screens taken from phones, please!
+reprex is installed in the JupyterHub and will be loaded whenever we run library(tidyverse)
+You won’t have to worry about the data side of reprexes as much for this course, as in almost all cases we will all be working with the same data. But! It is a key skill if you will be working with data and programming languages in the future.
+
+
+---
+## Considerations
+
+- Can your *data* be shared? 
+  - This may have privacy/commercial sensitivity implications, or
+  - It may just be inconvenient for the person/people helping you to have a large dataset
+- Have you loaded the correct libraries
+
+
+---
+# Watch the creator of the reprex package explain it
+
+Jenny Bryan is a bit of a hero of mine, and this was even BEFORE I knew she was the creator of the reprex package.
+
+I think the whole video is excellent, and you’re very welcome to watch all of it, but at minimum, please watch the following time intervals:
+
+0:00 - 7:20 (background and initial demo)
+14:08 - 29:48 (philosophy and examples)
+
+The video and slides are on this page: https://reprex.tidyverse.org/articles/articles/learn-reprex.html
+
+
+
+
+Wider version: https://media.tenor.com/WTbXryP5r98AAAAC/thor-loki.gif
+
+
+https://64.media.tumblr.com/5b83f128b68df6f6710573f8fa96a80b/tumblr_oytbkaoqIL1wscuaeo1_500.gif
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
