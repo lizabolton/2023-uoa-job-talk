@@ -29,7 +29,7 @@ class: center, middle, inverse, title-slide
 # <code>reprex</code>
 ]
 .subtitle[
-## Get help! Writing <em>reproducible examples</em> for code questions
+## Writing {repr}oducible {ex}amples
 ]
 .author[
 ### Liza Bolton<br>University of Auckland, Statistics Department<br><em>Job Talk</em>
@@ -59,16 +59,22 @@ I have geared this talk to a third year class with the following assumptions:
 ---
 class: inverse
 
-## Learning outcome
+## Learning outcomes
 
-- Know what a reprex is, understand when and why we need them, and have a basic idea of how to create one
+#### Specific
+- Describe the features of good reproducible examples and when and why we need them.
+- Create a basic reprex in R.
 
-In a course with a small number of overarching learnings outcomes, this topic would likely come under "Understand and implement prefessional collaboration and communication practices appropriate for data scientists"
+#### Course level
+
+In a course with a small number of overarching learning outcomes, this topic would likely come under something of this kind:
+
+- Understand and implement professional collaboration and communication practices appropriate for data scientists.
 
 ---
-class: center, middle
+class: center, middle, inverse
 
-# 🧢 Please put your student hats  on now, I am going to ask you to interact with me as if you are students in a Zoom class.
+# 🧢 Please put your student hats  on now, I am going to interact with you as if you are students in a Zoom class.
 
 # *Let's begin!*
 
@@ -133,19 +139,21 @@ Additionally, sometimes when we say "reprex" we mean `reprex` (the package) or `
 ## The philospophy of a good reprex
 
 .large[
-* Reprex code must run -- no faking it, make sure you can run it and that it demonstrates the issue)
+* Reprex code must **run** -- no faking it, make sure you can run it and that it demonstrates the issue)
 * Others shouldn't *have* to run it -- Someone very familiar with R might be able to read the code and output and immediately understand what is going on
 * Should be easy for others to copy + paste + run
 ]
 
-.footnote[Source: Reprex dos and don'ts https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html#package-philosophy]
+.footnote[Source: RStudio. *Reprex dos and don'ts*. https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html#package-philosophy]
 
 ---
 ## Some use cases
 
+.large[
 * Asking a question on [community.rstudio.com](https://community.rstudio.com/) or [stackoverflow.com](https://stackoverflow.com/)
 * Report a bug on [github.com](https://github.com/)
 * Collaborate on Slack, Discord or in email
+]
 
 &lt;!---Ask to use chat to indicate if come across these ---&gt;
 
@@ -158,10 +166,22 @@ Additionally, sometimes when we say "reprex" we mean `reprex` (the package) or `
 - Furthermore, can your *data* even be shared? 
       * This may have **privacy/commercial sensitivity** implications
       * It may just be *inconvenient* for the person/people helping you to have a large dataset
-      
-## 📖 For more dos and don'ts, read this RStudio article:  https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html  
 
+&lt;br&gt;
+.large[📖 For more dos and don'ts, read this RStudio article:  https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html]
 
+---
+## Other things to know
+
+* Practice using reprexes when asking for help on Ed Discussion!
+  * ❌ Screenshots 
+  * ❌ Upside down photos of computer screens taken from phones 😭
+  * ✅ Code I could copy and run myself  + what your output looks like 
+
+* If you've already installed the `tidyverse` package, `reprex` is installed will be loaded whenever we run `library(tidyverse)`.
+
+* You usually won’t have to worry about the *data* side of reprexes for this course, as in almost all cases we will all be working with the same data. But! It is a key skill if you will be working with data and programming languages in the future.
+  - You should opt to create a small dataset, or use one of the basic datasets (like `iris` or `mtcars`). 
 
 ---
 class: middle, center
@@ -172,6 +192,20 @@ class: middle, center
 ## Demo code
 
 .panelset[
+
+.panel[.panel-name[Download Rmd]
+
+You can run this code to download the task to your current working directory. Make sure you have the right .Rproj open.
+
+
+```r
+download.file(
+  "https://raw.githubusercontent.com/lizabolton/2023-uoa-job-talk/main/reprex_task.Rmd", 
+              destfile = "reprex_task.Rmd")
+```
+]
+
+
 .panel[.panel-name[Code]
 
 
@@ -184,18 +218,6 @@ starwars |&gt;
   mutate(is_human = species == "human")
 ```
 
-]
-
-.panel[.panel-name[Download Rmd]
-
-You can run this code to download the task to your current working directory. Make sure you have the right .Rproj open.
-
-
-```r
-download.file(
-  "https://raw.githubusercontent.com/lizabolton/2023-uoa-job-talk/main/reprex_task.Rmd", 
-              destfile = "reprex_task.Rmd")
-```
 ]
 
 .panel[.panel-name[reprex]
@@ -230,18 +252,6 @@ starwars |&gt;
 ]
 
 ]
-
----
-## Other things to know
-
-* Practice using reprexes when asking for help on Ed Discussion!
-  * ❌ Screenshots
-  * ❌ Upside down photos of computer screens taken from phones 😭
-  * ✅ Code I could copy and run myself  + what your output looks like 
-
-* If you've already installed the `tidyverse` package, `reprex` is installed will be loaded whenever we run `library(tidyverse)`.
-
-* You usually won’t have to worry about the data side of reprexes for this course, as in almost all cases we will all be working with the same data. But! It is a key skill if you will be working with data and programming languages in the future.
 
 ---
 
