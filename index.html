@@ -43,6 +43,7 @@ class: center, middle, inverse, title-slide
 class: inverse
 
 
+
 ## A quick preface 📝
 This talk is a sample teaching presentation.
 
@@ -53,10 +54,16 @@ I have geared this talk to a third year class with the following assumptions:
 - this topic would be fairly early in the course (Week 1 or 2), and
 - in class we have already discussed some ideas around professional practice, communication and collaboration.
 
-.small[This presentation is based on content I developed and taught in STA303: Methods of Data Analysis II at the University of Toronto.]
+.small[*This presentation is based on content I developed and taught in STA303: Methods of Data Analysis II at the University of Toronto.*]
 
+---
+class: inverse
 
+## Learning outcome
 
+- Know what a reprex is, understand when and why we need them, and have a basic idea of how to create one
+
+In a course with a small number of overarching learnings outcomes, this topic would likely come under "Understand and implement prefessional collaboration and communication practices appropriate for data scientists"
 
 ---
 class: center, middle
@@ -122,6 +129,39 @@ Additionally, sometimes when we say "reprex" we mean `reprex` (the package) or `
 
 .footnote[*This literally happened to me about 2 hours before preparing this slide for the first time!]
 
+---
+## The philospophy of a good reprex
+
+.large[
+* Reprex code must run -- no faking it, make sure you can run it and that it demonstrates the issue)
+* Others shouldn't *have* to run it -- Someone very familiar with R might be able to read the code and output and immediately understand what is going on
+* Should be easy for others to copy + paste + run
+]
+
+.footnote[Source: Reprex dos and don'ts https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html#package-philosophy]
+
+---
+## Some use cases
+
+* Asking a question on [community.rstudio.com](https://community.rstudio.com/) or [stackoverflow.com](https://stackoverflow.com/)
+* Report a bug on [github.com](https://github.com/)
+* Collaborate on Slack, Discord or in email
+
+&lt;!---Ask to use chat to indicate if come across these ---&gt;
+
+---
+## Data dos and don'ts
+
+**Use the simplest dataset possible**, almost NEVER your actual data. `iris` and `mtcars` are classics.
+- This is a great challenge to help you check if the issue is with your code or your data setup
+
+- Furthermore, can your *data* even be shared? 
+      * This may have **privacy/commercial sensitivity** implications
+      * It may just be *inconvenient* for the person/people helping you to have a large dataset
+      
+## 📖 For more dos and don'ts, read this RStudio article:  https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html  
+
+
 
 ---
 class: middle, center
@@ -148,7 +188,7 @@ starwars |&gt;
 
 .panel[.panel-name[Download Rmd]
 
-You can run this code to download the code to your current working directory. Make sure you have the right .Rproj open.
+You can run this code to download the task to your current working directory. Make sure you have the right .Rproj open.
 
 
 ```r
@@ -192,31 +232,9 @@ starwars |&gt;
 ]
 
 ---
-## Some use cases
-
-* Asking a question on [community.rstudio.com](https://community.rstudio.com/) or [stackoverflow.com](https://stackoverflow.com/)
-* Report a bug on [github.com](https://github.com/)
-* Collaborate on Slack, Discord or in email
-
-&lt;!---Ask to use chat to indicate if come across these ---&gt;
-
----
-## Dos and don'ts
-
-* **Use the simplest dataset possible**, almost NEVER your actual data. `iris` and `mtcars` are classics.
-  - This is a great challenge to help you check if the issue is with your code or your data setup
-  - Furthermore, can your *data* even be shared? 
-      * This may have **privacy/commercial sensitivity** implications
-      * It may just be *inconvenient* for the person/people helping you to have a large dataset
-      
-      
-
-.footnote[RStudio article:  https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html]  
-
----
 ## Other things to know
 
-* Please try to use use reprexes when asking for help on Ed Discussion!
+* Practice using reprexes when asking for help on Ed Discussion!
   * ❌ Screenshots
   * ❌ Upside down photos of computer screens taken from phones 😭
   * ✅ Code I could copy and run myself  + what your output looks like 
