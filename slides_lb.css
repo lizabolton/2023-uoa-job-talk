@@ -127,6 +127,10 @@ a, a > code {
   color: #FFFFFF;
 }
 
+.purple{
+  color: #612464;
+}
+
 ul {
   list-style-type: square;
 }

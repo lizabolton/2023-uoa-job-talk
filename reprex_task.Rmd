@@ -4,14 +4,12 @@ output: html_notebook
 ---
 
 ```{r}
-# Make sure tidyverse is installed on your computer
-library(tidyverse)
+# Load dpylr without messages
+suppressPackageStartupMessages(library(dplyr))
 
 starwars |> 
   select(where(is.numeric)) |> 
   mutate(is_human = species == "human")
-
-
 ```
 
 

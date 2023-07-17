@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>reprex</title>
+    <title>reprex: Writing {repr}oducible {ex}amples</title>
     <meta charset="utf-8" />
     <meta name="author" content="Liza Bolton University of Auckland, Statistics Department Job Talk" />
     <meta name="date" content="2023-07-18" />
@@ -26,10 +26,10 @@
 class: center, middle, inverse, title-slide
 
 .title[
-# <code>reprex</code>
+# <code>reprex</code>: Writing {repr}oducible {ex}amples
 ]
 .subtitle[
-## Writing {repr}oducible {ex}amples
+## .highlight[<a href="http://link.lizabolton.com/reprex">.purple[link.lizabolton.com/reprex]</a>]
 ]
 .author[
 ### Liza Bolton<br>University of Auckland, Statistics Department<br><em>Job Talk</em>
@@ -50,8 +50,8 @@ This talk is a sample teaching presentation.
 The task: *A short teaching presentation (5-10 mins) explaining some topic of my choice suitable for a second or third year undergraduate Data Science course.*
 
 I have geared this talk to a third year class with the following assumptions:
-- students have had exposure to programming in R &amp; RStudio and using the `tidyverse`,
-- this topic would be fairly early in the course (Week 1 or 2), and
+- this topic would be fairly early in the course (Week 1 or 2),
+- students have had exposure to programming in R &amp; RStudio and using the `tidyverse`, and
 - in class we have already discussed some ideas around professional practice, communication and collaboration.
 
 .small[*This presentation is based on content I developed and taught in STA303: Methods of Data Analysis II at the University of Toronto.*]
@@ -125,8 +125,11 @@ Additionally, sometimes when we say "reprex" we mean `reprex` (the package) or `
 ## Why should you care about creating reproducible examples?
 
 * Useful **professional skill** for those working with R and other programming languages in further study and future employment. 
-  - These concepts transferable to programming in any language.
-  - You will continue to learn updated/new functions, if not whole new languages in your career. Learning how to ask for help is an evergreen skill.
+  - These concepts transferable to programming in any language. Learning how to ask for help is an evergreen skill.
+  - Useful for: 
+      * Asking a question on [community.rstudio.com](https://community.rstudio.com/) or [stackoverflow.com](https://stackoverflow.com/).
+      * Report a bug on [github.com](https://github.com/).
+      * Collaborate on Slack, Discord or in email.
 
 * Useful NOW to help *us* help **YOU** on Ed Discussion.
 
@@ -136,52 +139,33 @@ Additionally, sometimes when we say "reprex" we mean `reprex` (the package) or `
 .footnote[*This literally happened to me about 2 hours before preparing this slide for the first time!]
 
 ---
-## The philospophy of a good reprex
+## The philosophy of a good reprex
 
 .large[
-* Reprex code must **run** -- no faking it, make sure you can run it and that it demonstrates the issue)
-* Others shouldn't *have* to run it -- Someone very familiar with R might be able to read the code and output and immediately understand what is going on
+* Reprex code must **run** — no faking it, make sure you can run it and that it demonstrates the issue
+* Others shouldn't *have* to run it — someone familiar with R might be able to read the code and output and immediately understand what is going on
 * Should be easy for others to copy + paste + run
 ]
 
 .footnote[Source: RStudio. *Reprex dos and don'ts*. https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html#package-philosophy]
 
----
-## Some use cases
+--
 
-.large[
-* Asking a question on [community.rstudio.com](https://community.rstudio.com/) or [stackoverflow.com](https://stackoverflow.com/)
-* Report a bug on [github.com](https://github.com/)
-* Collaborate on Slack, Discord or in email
-]
+.purple[.center[.large[**Must run. Doesn't have to be run. Easy to run.**]]]
 
-&lt;!---Ask to use chat to indicate if come across these ---&gt;
 
 ---
 ## Data dos and don'ts
 
 **Use the simplest dataset possible**, almost NEVER your actual data. `iris` and `mtcars` are classics.
-- This is a great challenge to help you check if the issue is with your code or your data setup
+- This is a great challenge to help you check if the issue is with your code or your data setup.
 
 - Furthermore, can your *data* even be shared? 
-      * This may have **privacy/commercial sensitivity** implications
-      * It may just be *inconvenient* for the person/people helping you to have a large dataset
+      * This may have **privacy/commercial sensitivity** implications.
+      * It may just be *inconvenient* for the person/people helping you to have a large dataset.
 
 &lt;br&gt;
 .large[📖 For more dos and don'ts, read this RStudio article:  https://reprex.tidyverse.org/articles/reprex-dos-and-donts.html]
-
----
-## Other things to know
-
-* Practice using reprexes when asking for help on Ed Discussion!
-  * ❌ Screenshots 
-  * ❌ Upside down photos of computer screens taken from phones 😭
-  * ✅ Code I could copy and run myself  + what your output looks like 
-
-* If you've already installed the `tidyverse` package, `reprex` is installed will be loaded whenever we run `library(tidyverse)`.
-
-* You usually won’t have to worry about the *data* side of reprexes for this course, as in almost all cases we will all be working with the same data. But! It is a key skill if you will be working with data and programming languages in the future.
-  - You should opt to create a small dataset, or use one of the basic datasets (like `iris` or `mtcars`). 
 
 ---
 class: middle, center
@@ -210,8 +194,8 @@ download.file(
 
 
 ```r
-# Make sure tidyverse is installed on your computer
-library(tidyverse)
+# Load dpylr without messages
+suppressPackageStartupMessages(library(dplyr))
 
 starwars |&gt; 
   select(where(is.numeric)) |&gt; 
@@ -223,8 +207,10 @@ starwars |&gt;
 .panel[.panel-name[reprex]
 
 .small[
+
 ``` r
-library(tidyverse)
+# Load dpylr without messages
+suppressPackageStartupMessages(library(dplyr))
 
 starwars |&gt; 
   select(where(is.numeric)) |&gt; 
@@ -247,7 +233,8 @@ starwars |&gt;
 #&gt;  10.     └─rlang::abort(message, class = error_class, parent = parent, call = error_call)
 ```
 
-&lt;sup&gt;Created on 2023-07-17 with [reprex v2.0.2](https://reprex.tidyverse.org)&lt;/sup&gt;
+&lt;sup&gt;Created on 2023-07-18 with [reprex v2.0.2](https://reprex.tidyverse.org)&lt;/sup&gt;
+
 ]
 ]
 

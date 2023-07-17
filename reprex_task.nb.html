@@ -1754,30 +1754,19 @@ display: none;
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RhcndhcnMgfD4gXG4gIHNlbGVjdCh3aGVyZShpcy5udW1lcmljKSkgfD4gXG4gIG11dGF0ZShpc19odW1hbiA9IHNwZWNpZXMgPT0gXCJodW1hblwiKVxuXG5gYGAifQ== -->
-<pre class="r"><code>starwars |&gt; 
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBMb2FkIGRweWxyIHdpdGhvdXQgbWVzc2FnZXNcbnN1cHByZXNzUGFja2FnZVN0YXJ0dXBNZXNzYWdlcyhsaWJyYXJ5KGRwbHlyKSlcblxuc3RhcndhcnMgfD4gXG4gIHNlbGVjdCh3aGVyZShpcy5udW1lcmljKSkgfD4gXG4gIG11dGF0ZShpc19odW1hbiA9IHNwZWNpZXMgPT0gXCJodW1hblwiKVxuYGBgIn0= -->
+<pre class="r"><code># Load dpylr without messages
+suppressPackageStartupMessages(library(dplyr))
+
+starwars |&gt; 
   select(where(is.numeric)) |&gt; 
-  mutate(is_human = species == &quot;human&quot;)
-</code></pre>
+  mutate(is_human = species == &quot;human&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gYG11dGF0ZSgpYDpcbuKEuSBJbiBhcmd1bWVudDogYGlzX2h1bWFuID0gc3BlY2llcyA9PSBcImh1bWFuXCJgLlxuQ2F1c2VkIGJ5IGVycm9yOlxuISBvYmplY3QgJ3NwZWNpZXMnIG5vdCBmb3VuZFxuQmFja3RyYWNlOlxuIDEuIGRwbHlyOjptdXRhdGUoLi4uKVxuIDIuIGRwbHlyOjo6bXV0YXRlLmRhdGEuZnJhbWUoLi4uKVxuIDMuIGRwbHlyOjo6bXV0YXRlX2NvbHMoLmRhdGEsIGRwbHlyX3F1b3N1cmVzKC4uLiksIGJ5KVxuIDUuIGRwbHlyOjo6bXV0YXRlX2NvbChkb3RzW1tpXV0sIGRhdGEsIG1hc2ssIG5ld19jb2x1bW5zKVxuIDYuIG1hc2skZXZhbF9hbGxfbXV0YXRlKHF1bylcbiA3LiBkcGx5ciAobG9jYWwpIGV2YWwoKVxuIn0= -->
-<pre><code>Error in `mutate()`:
-ℹ In argument: `is_human = species == &quot;human&quot;`.
-Caused by error:
-! object &#39;species&#39; not found
-Backtrace:
- 1. dplyr::mutate(...)
- 2. dplyr:::mutate.data.frame(...)
- 3. dplyr:::mutate_cols(.data, dplyr_quosures(...), by)
- 5. dplyr:::mutate_col(dots[[i]], data, mask, new_columns)
- 6. mask$eval_all_mutate(quo)
- 7. dplyr (local) eval()</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUmVwcmV4IHRhc2siCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyfQojIE1ha2Ugc3VyZSB0aWR5dmVyc2UgaXMgaW5zdGFsbGVkIG9uIHlvdXIgY29tcHV0ZXIKbGlicmFyeSh0aWR5dmVyc2UpCgpzdGFyd2FycyB8PiAKICBzZWxlY3Qod2hlcmUoaXMubnVtZXJpYykpIHw+IAogIG11dGF0ZShpc19odW1hbiA9IHNwZWNpZXMgPT0gImh1bWFuIikKCgpgYGAKCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUmVwcmV4IHRhc2siCm91dHB1dDogaHRtbF9ub3RlYm9vawotLS0KCmBgYHtyfQojIExvYWQgZHB5bHIgd2l0aG91dCBtZXNzYWdlcwpzdXBwcmVzc1BhY2thZ2VTdGFydHVwTWVzc2FnZXMobGlicmFyeShkcGx5cikpCgpzdGFyd2FycyB8PiAKICBzZWxlY3Qod2hlcmUoaXMubnVtZXJpYykpIHw+IAogIG11dGF0ZShpc19odW1hbiA9IHNwZWNpZXMgPT0gImh1bWFuIikKYGBgCgoK</div>
 
 
 
